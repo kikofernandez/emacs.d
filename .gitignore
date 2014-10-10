@@ -1,0 +1,5 @@
+# Ignore the folders
+.cask
+
+# Ignore all emacs backup files
+*~
