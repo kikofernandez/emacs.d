@@ -8,6 +8,10 @@
 (load-theme 'zenburn t)
 (set-default-font "Monaco 16")
 
+;; Ido mode: lets you interactively do things with buffers and files
+(require 'ido)
+(ido-mode t)
+
 (autoload 'markdown-mode "markdown-mode"
    "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
