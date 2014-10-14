@@ -12,6 +12,14 @@
 (require 'ido)
 (ido-mode t)
 
+;; FillColumnIndicator
+(setq-default fill-column 80)
+(setq fci-rule-color "white")
+(add-hook 'after-change-major-mode-hook 'fci-mode)
+;(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
+;(global-fci-mode 1)
+
+;; Markdown
 (autoload 'markdown-mode "markdown-mode"
    "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
