@@ -28,4 +28,5 @@
 (depends-on "yasnippet")
 (depends-on "markdown-mode")
 (depends-on "zenburn-theme")
-(depends-on "fill-column-indicator")
+(depends-on "fill-column-indicator")(depends-on "fill-column-indicator")
+(depends-on "auto-complete")(depends-on "fill-column-indicator")
