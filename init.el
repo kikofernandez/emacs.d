@@ -7,10 +7,15 @@
 ;; Theme
 (load-theme 'zenburn t)
 (set-default-font "Monaco 16")
+(global-linum-mode t)
+
 
 ;; Ido mode: lets you interactively do things with buffers and files
 (require 'ido)
 (ido-mode t)
+(setq ido-decorations (quote ("\n-> " "" "\n   " "\n   ..." "[" "]" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))
+  (defun ido-disable-line-truncation () (set (make-local-variable 'truncate-lines) nil))
+  (add-hook 'ido-minibuffer-setup-hook 'ido-disable-line-truncation)
 
 ;; FillColumnIndicator
 (setq-default fill-column 80)
@@ -26,6 +31,28 @@
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
+;; Auto complete
+;(require 'auto-complete-config)
+;(add-to-list 'ac-dictionary-directories "~/.emacs.d/.cask/24.3.50.1/elpa/auto-complete-20130724.1750/dict")
+;(ac-config-default)
+;(setq ac-ignore-case nil)
+;;(add-to-list 'ac-modes 'enh-ruby-mode)
+
+;; Ruby support
+(add-hook 'enh-ruby-mode-hook 'robe-mode)
+(add-hook 'enh-ruby-mode-hook 'yard-mode)
+
+;; OCaml
+(autoload 'tuareg-mode "tuareg" "Major mode for editing Caml code" t)
+(autoload 'camldebug "camldebug" "Run the Caml debugger" t)
+(autoload 'tuareg-imenu-set-imenu "tuareg-imenu" "Configuration of imenu for tuareg" t)
+
+(add-hook 'tuareg-mode-hook 'tuareg-imenu-set-imenu)
+
+(setq auto-mode-alist 
+        (append '(("\\.ml[ily]?$" . tuareg-mode)
+	          ("\\.topml$" . tuareg-mode))
+                  auto-mode-alist))
 
 ;; Bindings
 (global-set-key [(control ?x) (control ?g)] 'magit-status)
