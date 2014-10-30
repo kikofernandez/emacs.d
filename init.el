@@ -54,5 +54,16 @@
 	          ("\\.topml$" . tuareg-mode))
                   auto-mode-alist))
 
+;; Haskell mode
+(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+;;(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+;;(add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
+
 ;; Bindings
 (global-set-key [(control ?x) (control ?g)] 'magit-status)
+(if (featurep 'xemacs)
+     (global-set-key [(control ?x) (control ?m)] 'imenu) ; XEmacs
+   (global-set-key [(control ?x) (control ?m)] 'imenu)) ; GNU Emacs
+
+

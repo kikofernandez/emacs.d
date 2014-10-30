@@ -33,3 +33,5 @@
 (depends-on "enh-ruby-mode")
 (depends-on "undo-tree")
 (depends-on "tuareg")
+(depends-on "haskell-mode")
+(depends-on "imenu")
