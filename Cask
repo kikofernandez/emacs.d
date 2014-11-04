@@ -36,3 +36,4 @@
 (depends-on "haskell-mode")
 (depends-on "imenu")
 (depends-on "exec-path-from-shell")
+(depends-on "ack")
