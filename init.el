@@ -62,6 +62,11 @@
 
 ;; Bindings
 (global-set-key [(control ?x) (control ?g)] 'magit-status)
+
+;; Sets the $MANPATH, $PATH and exec-path from your shell
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+
 (if (featurep 'xemacs)
      (global-set-key [(control ?x) (control ?m)] 'imenu) ; XEmacs
    (global-set-key [(control ?x) (control ?m)] 'imenu)) ; GNU Emacs

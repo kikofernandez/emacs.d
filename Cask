@@ -35,3 +35,4 @@
 (depends-on "tuareg")
 (depends-on "haskell-mode")
 (depends-on "imenu")
+(depends-on "exec-path-from-shell")
